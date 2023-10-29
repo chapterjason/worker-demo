@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ee6d807d714889360a4d180c8e7cdbe",
+    "content-hash": "36a2102ffb0a12f5d127823ea55cbd25",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -1322,16 +1322,16 @@
         },
         {
             "name": "easycorp/easyadmin-bundle",
-            "version": "v4.8.2",
+            "version": "v4.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EasyCorp/EasyAdminBundle.git",
-                "reference": "feaaf62ee9a931695ac7fe67a2436dbe02e3169d"
+                "reference": "f9e50a3bdcee3194d332525e52d3c064eb5cf1c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/feaaf62ee9a931695ac7fe67a2436dbe02e3169d",
-                "reference": "feaaf62ee9a931695ac7fe67a2436dbe02e3169d",
+                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/f9e50a3bdcee3194d332525e52d3c064eb5cf1c0",
+                "reference": "f9e50a3bdcee3194d332525e52d3c064eb5cf1c0",
                 "shasum": ""
             },
             "require": {
@@ -1404,7 +1404,7 @@
             ],
             "support": {
                 "issues": "https://github.com/EasyCorp/EasyAdminBundle/issues",
-                "source": "https://github.com/EasyCorp/EasyAdminBundle/tree/v4.8.2"
+                "source": "https://github.com/EasyCorp/EasyAdminBundle/tree/v4.8.3"
             },
             "funding": [
                 {
@@ -1412,7 +1412,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-10-27T18:28:21+00:00"
+            "time": "2023-10-29T19:21:38+00:00"
         },
         {
             "name": "psr/cache",
@@ -1718,16 +1718,16 @@
         },
         {
             "name": "sourecode/worker-bundle",
-            "version": "v0.9.0",
+            "version": "v0.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SoureCode/WorkerBundle.git",
-                "reference": "8012d1ed18452a467d0d11805f35d804d6c8640b"
+                "reference": "3b5ac756b8f5e914b5c955582e6759fa52256c52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SoureCode/WorkerBundle/zipball/8012d1ed18452a467d0d11805f35d804d6c8640b",
-                "reference": "8012d1ed18452a467d0d11805f35d804d6c8640b",
+                "url": "https://api.github.com/repos/SoureCode/WorkerBundle/zipball/3b5ac756b8f5e914b5c955582e6759fa52256c52",
+                "reference": "3b5ac756b8f5e914b5c955582e6759fa52256c52",
                 "shasum": ""
             },
             "require": {
@@ -1763,9 +1763,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SoureCode/WorkerBundle/issues",
-                "source": "https://github.com/SoureCode/WorkerBundle/tree/v0.9.0"
+                "source": "https://github.com/SoureCode/WorkerBundle/tree/v0.9.1"
             },
-            "time": "2023-10-29T17:52:24+00:00"
+            "time": "2023-10-29T19:29:10+00:00"
         },
         {
             "name": "symfony/asset",
