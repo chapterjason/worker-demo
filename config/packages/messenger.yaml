@@ -10,6 +10,7 @@ framework:
             # sync: 'sync://'
 
         routing:
+            App\Message\SleepMessage: async
             # Route your messages to the transports
             # 'App\Message\YourMessage': async
 
