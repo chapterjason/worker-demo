@@ -1,0 +1,17 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{# @var field \EasyCorp\Bundle\EasyAdminBundle\Dto\FieldDto #}
+{# @var entity \EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto #}
+
+{% set badge = "badge-primary" %}
+
+{% if field.value == constant('\\SoureCode\\Bundle\\Worker\\Entity\\WorkerStatus::IDLE') %}
+    {% set badge = "badge-secondary" %}
+{% elseif field.value == constant('\\SoureCode\\Bundle\\Worker\\Entity\\WorkerStatus::PROCESSING') %}
+    {% set badge = "badge-primary" %}
+{% elseif field.value == constant('\\SoureCode\\Bundle\\Worker\\Entity\\WorkerStatus::OFFLINE') %}
+    {% set badge = "badge-danger" %}
+{% endif %}
+
+<div class="badge {{ badge }}">
+    {{ field.formattedValue }}
+</div>
