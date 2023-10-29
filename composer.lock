@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "36a2102ffb0a12f5d127823ea55cbd25",
+    "content-hash": "553e31d82e9b0e60ad86abf03816326a",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -1718,16 +1718,16 @@
         },
         {
             "name": "sourecode/worker-bundle",
-            "version": "v0.9.1",
+            "version": "v0.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SoureCode/WorkerBundle.git",
-                "reference": "3b5ac756b8f5e914b5c955582e6759fa52256c52"
+                "reference": "e70e08abbf362c1035d09a2edb9b3de130dc5f74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SoureCode/WorkerBundle/zipball/3b5ac756b8f5e914b5c955582e6759fa52256c52",
-                "reference": "3b5ac756b8f5e914b5c955582e6759fa52256c52",
+                "url": "https://api.github.com/repos/SoureCode/WorkerBundle/zipball/e70e08abbf362c1035d09a2edb9b3de130dc5f74",
+                "reference": "e70e08abbf362c1035d09a2edb9b3de130dc5f74",
                 "shasum": ""
             },
             "require": {
@@ -1763,9 +1763,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SoureCode/WorkerBundle/issues",
-                "source": "https://github.com/SoureCode/WorkerBundle/tree/v0.9.1"
+                "source": "https://github.com/SoureCode/WorkerBundle/tree/v0.9.2"
             },
-            "time": "2023-10-29T19:29:10+00:00"
+            "time": "2023-10-29T23:43:42+00:00"
         },
         {
             "name": "symfony/asset",
