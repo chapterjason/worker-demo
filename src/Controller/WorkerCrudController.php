@@ -55,7 +55,7 @@ class WorkerCrudController extends AbstractCrudController
 
         $resetAction = Action::new('reset', 'Reset')
             ->linkToCrudAction('reset')
-            ->displayIf(fn(Worker $worker) => !$worker->isRunning());
+        ;
 
         $stopAction = Action::new('stop', 'Stop')
             ->linkToCrudAction('stop')
@@ -103,6 +103,18 @@ class WorkerCrudController extends AbstractCrudController
             ->add(Crud::PAGE_INDEX, $stopAllAction)
             ->add(Crud::PAGE_INDEX, $startAllAction)
             ->add(Crud::PAGE_INDEX, Action::DETAIL)
+            ->update(Crud::PAGE_INDEX, Action::DELETE, fn(Action $action) => $action->displayIf(
+                fn(Worker $worker) => !$worker->isRunning()
+            ))
+            ->update(Crud::PAGE_DETAIL, Action::DELETE, fn(Action $action) => $action->displayIf(
+                fn(Worker $worker) => !$worker->isRunning()
+            ))
+            ->update(Crud::PAGE_INDEX, Action::EDIT, fn(Action $action) => $action->displayIf(
+                fn(Worker $worker) => !$worker->isRunning()
+            ))
+            ->update(Crud::PAGE_DETAIL, Action::EDIT, fn(Action $action) => $action->displayIf(
+                fn(Worker $worker) => !$worker->isRunning()
+            ))
             ->remove(Crud::PAGE_INDEX, Action::BATCH_DELETE);
     }
 
@@ -138,7 +150,7 @@ class WorkerCrudController extends AbstractCrudController
             BooleanField::new('reset')
                 ->hideOnIndex()
                 ->renderAsSwitch(false)
-                ->setHelp('Reset the worker state before processing the next message'),
+                ->setHelp('Reset the worker statistics'),
             ChoiceField::new('status')
                 ->setFormType(EnumType::class)
                 ->setFormTypeOption('class', WorkerStatus::class)
@@ -218,7 +230,7 @@ class WorkerCrudController extends AbstractCrudController
          */
         $instance = $entity->getInstance();
 
-        $stopped = $this->workerManager->start($instance);
+        $stopped = $this->workerManager->stop($instance);
 
         if ($stopped) {
             $this->addFlash('success', 'Worker stopped.');
@@ -292,6 +304,19 @@ class WorkerCrudController extends AbstractCrudController
             ]),
             new NullOutput()
         );
+
+        return $this->redirect($context->getReferrer());
+    }
+
+    public function stopAll(AdminContext $context): RedirectResponse
+    {
+        $stopped = $this->workerManager->stopAll();
+
+        if ($stopped) {
+            $this->addFlash('success', 'Workers stopped.');
+        } else {
+            $this->addFlash('error', 'Workers failed to stop.');
+        }
 
         return $this->redirect($context->getReferrer());
     }
