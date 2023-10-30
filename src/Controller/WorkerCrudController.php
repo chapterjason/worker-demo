@@ -18,8 +18,12 @@ use RuntimeException;
 use SoureCode\Bundle\Worker\Entity\Worker;
 use SoureCode\Bundle\Worker\Entity\WorkerStatus;
 use SoureCode\Bundle\Worker\Manager\WorkerManager;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 class WorkerCrudController extends AbstractCrudController
 {
@@ -44,10 +48,6 @@ class WorkerCrudController extends AbstractCrudController
 
     public function configureActions(Actions $actions): Actions
     {
-        $evaluateWorkersAction = Action::new('evaluateWorkers', 'Evaluate Workers')
-            ->linkToCrudAction('evaluateWorkers')
-            ->createAsGlobalAction();
-
         $startAction = Action::new('start', 'Start')
             ->linkToCrudAction('start')
             ->displayIf(fn(Worker $worker) => !$worker->isRunning());
@@ -84,15 +84,23 @@ class WorkerCrudController extends AbstractCrudController
             ->addCssClass('text-danger')
             ->displayIf(fn(Worker $worker) => $worker->isRunning());
 
+        $gracefullyRestartAction = Action::new('gracefullyRestart', 'Gracefully Restart')
+            ->linkToCrudAction('gracefullyRestart')
+            ->createAsGlobalAction()
+            ->setHtmlAttributes([
+                'data-controller' => 'are-you-sure',
+            ])
+            ->addCssClass('btn-danger');
+
         return parent::configureActions($actions)
             ->add(Crud::PAGE_DETAIL, $startAction)
             ->add(Crud::PAGE_INDEX, $resetAction)
+            ->add(Crud::PAGE_INDEX, $gracefullyRestartAction)
             ->add(Crud::PAGE_INDEX, $startAction)
             ->add(Crud::PAGE_INDEX, $restartAction)
             ->add(Crud::PAGE_INDEX, $stopAction)
             ->add(Crud::PAGE_INDEX, $stopAllAction)
             ->add(Crud::PAGE_INDEX, $startAllAction)
-            ->add(Crud::PAGE_INDEX, $evaluateWorkersAction)
             ->add(Crud::PAGE_INDEX, Action::DETAIL)
             ->remove(Crud::PAGE_INDEX, Action::BATCH_DELETE);
     }
@@ -181,8 +189,6 @@ class WorkerCrudController extends AbstractCrudController
             $this->addFlash('error', 'Workers failed to start.');
         }
 
-        sleep(3);
-
         return $this->redirect($context->getReferrer());
     }
 
@@ -200,15 +206,6 @@ class WorkerCrudController extends AbstractCrudController
         $this->addFlash('success', 'Worker created successfully. Start it to process messages.');
 
         parent::persistEntity($entityManager, $entityInstance);
-    }
-
-    public function evaluateWorkers(AdminContext $adminContext): RedirectResponse
-    {
-        $this->workerManager->evaluateWorkers();
-
-        $this->addFlash('success', 'Workers evaluated.');
-
-        return $this->redirect($adminContext->getReferrer());
     }
 
     public function restart(AdminContext $context): RedirectResponse
@@ -260,8 +257,6 @@ class WorkerCrudController extends AbstractCrudController
             $this->addFlash('error', 'Failed to stop worker.');
         }
 
-        sleep(3);
-
         return $this->redirect($context->getReferrer());
     }
 
@@ -282,7 +277,20 @@ class WorkerCrudController extends AbstractCrudController
             $this->addFlash('error', 'Worker failed to start.');
         }
 
-        sleep(3);
+        return $this->redirect($context->getReferrer());
+    }
+
+    public function gracefullyRestart(AdminContext $context, KernelInterface $kernel): RedirectResponse
+    {
+        $application = new Application($kernel);
+        $application->setAutoExit(false);
+
+        $application->run(
+            new ArrayInput([
+                'command' => 'messenger:stop-workers',
+            ]),
+            new NullOutput()
+        );
 
         return $this->redirect($context->getReferrer());
     }
