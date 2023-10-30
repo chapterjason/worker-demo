@@ -1,2 +1,0 @@
-soure_code_daemon:
-  directory: '%daemon_directory%'
