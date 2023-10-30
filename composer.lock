@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5ff8c6306ca0d983c11449fa31c8c6c",
+    "content-hash": "0c7dc3a205e70d28dc52a257a620eb3a",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -1719,16 +1719,16 @@
         },
         {
             "name": "sourecode/worker-bundle",
-            "version": "v0.9.3",
+            "version": "v0.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SoureCode/WorkerBundle.git",
-                "reference": "82fb475ee88fcfe2c3aad7e8af256e4cf6760cbe"
+                "reference": "a9b4aa296615b53872bae6a8947405f02e0dcb98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SoureCode/WorkerBundle/zipball/82fb475ee88fcfe2c3aad7e8af256e4cf6760cbe",
-                "reference": "82fb475ee88fcfe2c3aad7e8af256e4cf6760cbe",
+                "url": "https://api.github.com/repos/SoureCode/WorkerBundle/zipball/a9b4aa296615b53872bae6a8947405f02e0dcb98",
+                "reference": "a9b4aa296615b53872bae6a8947405f02e0dcb98",
                 "shasum": ""
             },
             "require": {
@@ -1764,9 +1764,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SoureCode/WorkerBundle/issues",
-                "source": "https://github.com/SoureCode/WorkerBundle/tree/v0.9.3"
+                "source": "https://github.com/SoureCode/WorkerBundle/tree/v0.9.4"
             },
-            "time": "2023-10-30T01:15:37+00:00"
+            "time": "2023-10-30T20:20:33+00:00"
         },
         {
             "name": "symfony/asset",
@@ -3010,16 +3010,16 @@
         },
         {
             "name": "symfony/flex",
-            "version": "v2.4.0",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/flex.git",
-                "reference": "46bebc3d097d1bb1dce04c5ba83658afd79988f9"
+                "reference": "ae6dea68771c5fca9d172e0c0910bdd06199f6f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/flex/zipball/46bebc3d097d1bb1dce04c5ba83658afd79988f9",
-                "reference": "46bebc3d097d1bb1dce04c5ba83658afd79988f9",
+                "url": "https://api.github.com/repos/symfony/flex/zipball/ae6dea68771c5fca9d172e0c0910bdd06199f6f4",
+                "reference": "ae6dea68771c5fca9d172e0c0910bdd06199f6f4",
                 "shasum": ""
             },
             "require": {
@@ -3055,7 +3055,7 @@
             "description": "Composer plugin for Symfony",
             "support": {
                 "issues": "https://github.com/symfony/flex/issues",
-                "source": "https://github.com/symfony/flex/tree/v2.4.0"
+                "source": "https://github.com/symfony/flex/tree/v2.4.1"
             },
             "funding": [
                 {
@@ -3071,7 +3071,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-10-22T18:05:25+00:00"
+            "time": "2023-10-30T18:35:17+00:00"
         },
         {
             "name": "symfony/form",
