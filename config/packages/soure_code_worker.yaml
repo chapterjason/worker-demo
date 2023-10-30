@@ -1,0 +1,2 @@
+soure_code_worker:
+  service_directory: '%daemon_directory%/worker'
