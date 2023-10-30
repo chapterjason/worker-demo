@@ -24,3 +24,30 @@
    [php-fpm-pool-settings] 
    env[PHP_PATH]="/var/www/vhosts/<HOST>/.phpenv/shims/php"
     ```
+   
+# Restart requirements
+
+- Changes in:
+  - `config/*` (Basically any change in the configuration if it is feature related)
+  - `src/Message/*`
+  - `src/MessageHandler/*`
+- Usage of 2-Stage-Migration in case of renaming a field
+   - Stage 1: (Minor Update)
+     - Add the new field to the entity
+     - Migrate the data from the old field to the new field
+     - Update usage of the old field to the new field
+     - Entity:
+       - Properties:
+         - Keep the old field in the entity
+         - Add the new field to the entity
+       - Methods:
+         - Remove getter and setter for the old field (Or deprecate them)
+         - Add getter and setter for the new field
+           - Setter for the new field should also set the old field (Someone might still use the old field)
+           - Getter for the new field should return the new field and if it is null the old field
+   - Stage 2: (Major Update)
+     - **Must** be deployed in a separate deployment!
+     - **Must** be deployed after all workers are stopped! (Basically all processes which uses the old field, cached data might still be used, even the frontend should be stopped)
+     - A Worker might still use the old field, that's why this steps will need to be done in a major update.
+     - Migrate the data from the old field to the new field (Just to be sure, as it could be that someone wrote to the old field in the meantime)
+     - Remove the old field from the entity
