@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "553e31d82e9b0e60ad86abf03816326a",
+    "content-hash": "a5ff8c6306ca0d983c11449fa31c8c6c",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -1666,20 +1666,21 @@
         },
         {
             "name": "sourecode/daemon-bundle",
-            "version": "v0.11.3",
+            "version": "v0.11.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SoureCode/DaemonBundle.git",
-                "reference": "780f13a9e883d0b4407858d5cae29d85445b271a"
+                "reference": "a0b470e0cae6b6d433794a0b7abde4c72ec882d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SoureCode/DaemonBundle/zipball/780f13a9e883d0b4407858d5cae29d85445b271a",
-                "reference": "780f13a9e883d0b4407858d5cae29d85445b271a",
+                "url": "https://api.github.com/repos/SoureCode/DaemonBundle/zipball/a0b470e0cae6b6d433794a0b7abde4c72ec882d7",
+                "reference": "a0b470e0cae6b6d433794a0b7abde4c72ec882d7",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
+                "ext-posix": "*",
                 "ext-simplexml": "*",
                 "php": ">=8.2",
                 "symfony/config": "^6.3 || ^6.4",
@@ -1712,22 +1713,22 @@
             ],
             "support": {
                 "issues": "https://github.com/SoureCode/DaemonBundle/issues",
-                "source": "https://github.com/SoureCode/DaemonBundle/tree/v0.11.3"
+                "source": "https://github.com/SoureCode/DaemonBundle/tree/v0.11.4"
             },
-            "time": "2023-10-28T20:06:09+00:00"
+            "time": "2023-10-30T01:11:14+00:00"
         },
         {
             "name": "sourecode/worker-bundle",
-            "version": "v0.9.2",
+            "version": "v0.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SoureCode/WorkerBundle.git",
-                "reference": "e70e08abbf362c1035d09a2edb9b3de130dc5f74"
+                "reference": "82fb475ee88fcfe2c3aad7e8af256e4cf6760cbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SoureCode/WorkerBundle/zipball/e70e08abbf362c1035d09a2edb9b3de130dc5f74",
-                "reference": "e70e08abbf362c1035d09a2edb9b3de130dc5f74",
+                "url": "https://api.github.com/repos/SoureCode/WorkerBundle/zipball/82fb475ee88fcfe2c3aad7e8af256e4cf6760cbe",
+                "reference": "82fb475ee88fcfe2c3aad7e8af256e4cf6760cbe",
                 "shasum": ""
             },
             "require": {
@@ -1735,7 +1736,7 @@
                 "doctrine/orm": "^2.16 || ^3.0",
                 "ext-pcntl": "*",
                 "php": ">=8.2",
-                "sourecode/daemon-bundle": "^0.11.3",
+                "sourecode/daemon-bundle": "^0.11.4",
                 "symfony/messenger": "^6.3 || ^6.4",
                 "symfony/serializer": "^6.3 || ^6.4"
             },
@@ -1763,9 +1764,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SoureCode/WorkerBundle/issues",
-                "source": "https://github.com/SoureCode/WorkerBundle/tree/v0.9.2"
+                "source": "https://github.com/SoureCode/WorkerBundle/tree/v0.9.3"
             },
-            "time": "2023-10-29T23:43:42+00:00"
+            "time": "2023-10-30T01:15:37+00:00"
         },
         {
             "name": "symfony/asset",
