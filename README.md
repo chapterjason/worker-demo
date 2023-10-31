@@ -7,6 +7,7 @@
 /opt/plesk/php/8.2/bin/php bin/console cache:warmup --no-interaction --env=prod
 /opt/plesk/php/8.2/bin/php bin/console assets:install --no-interaction --env=prod
 /opt/plesk/php/8.2/bin/php bin/console doctrine:migrations:migrate --allow-no-migration --all-or-nothing --no-interaction --env=prod
+/opt/plesk/php/8.2/bin/php bin/console worker:reload --no-interaction --env=prod
 /opt/plesk/php/8.2/bin/php bin/console messenger:stop-workers --env=prod
 ```
 
